@@ -1,0 +1,38 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Order {
+  createdAt  DateTime         @default(now())
+  currency   String?
+  customerId BigInt?
+  date       DateTime?
+  id         BigInt           @id @default(autoincrement())
+  notes      String?
+  orderItems OrderItem[]
+  status     EnumOrderStatus?
+  total      Float?
+  updatedAt  DateTime         @updatedAt
+}
+
+model OrderItem {
+  createdAt   DateTime @default(now())
+  id          BigInt   @id @default(autoincrement())
+  order       Order?   @relation(fields: [orderId], references: [id])
+  orderId     BigInt?
+  productId   BigInt
+  productName String
+  productSku  String
+  subtotal    Float
+  unitPrice   Float
+  updatedAt   DateTime @updatedAt
+}
+
+enum EnumOrderStatus {
+  Option1
+}
