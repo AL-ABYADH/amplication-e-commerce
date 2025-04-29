@@ -43,6 +43,7 @@ export class OrderItemControllerBase {
       select: {
         createdAt: true,
         id: true,
+        image: true,
 
         order: {
           select: {
@@ -70,6 +71,7 @@ export class OrderItemControllerBase {
       select: {
         createdAt: true,
         id: true,
+        image: true,
 
         order: {
           select: {
@@ -98,6 +100,7 @@ export class OrderItemControllerBase {
       select: {
         createdAt: true,
         id: true,
+        image: true,
 
         order: {
           select: {
@@ -143,6 +146,7 @@ export class OrderItemControllerBase {
         select: {
           createdAt: true,
           id: true,
+          image: true,
 
           order: {
             select: {
@@ -180,6 +184,7 @@ export class OrderItemControllerBase {
         select: {
           createdAt: true,
           id: true,
+          image: true,
 
           order: {
             select: {

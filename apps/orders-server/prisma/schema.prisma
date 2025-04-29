@@ -23,6 +23,7 @@ model Order {
 model OrderItem {
   createdAt   DateTime @default(now())
   id          BigInt   @id @default(autoincrement())
+  image       Json
   order       Order?   @relation(fields: [orderId], references: [id])
   orderId     BigInt?
   productId   BigInt

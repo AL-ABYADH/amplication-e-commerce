@@ -34,6 +34,7 @@ export const OrderShow = (props: ShowProps): React.ReactElement => {
           <Datagrid rowClick="show" bulkActionButtons={false}>
             <DateField source="createdAt" label="Created At" />
             <TextField label="ID" source="id" />
+            <TextField label="Image" source="image" />
             <ReferenceField label="Order" source="order.id" reference="Order">
               <TextField source={ORDER_TITLE_FIELD} />
             </ReferenceField>

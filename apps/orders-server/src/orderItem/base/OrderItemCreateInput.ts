@@ -11,6 +11,9 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { InputJsonValue } from "../../types";
 import { OrderWhereUniqueInput } from "../../order/base/OrderWhereUniqueInput";
 import {
   ValidateNested,
@@ -26,6 +29,13 @@ import { GraphQLBigInt } from "../../util/GraphQLBigInt";
 
 @InputType()
 class OrderItemCreateInput {
+  @ApiProperty({
+    required: true,
+  })
+  @IsJSONValue()
+  @Field(() => GraphQLJSON)
+  image!: InputJsonValue;
+
   @ApiProperty({
     required: false,
     type: () => OrderWhereUniqueInput,
