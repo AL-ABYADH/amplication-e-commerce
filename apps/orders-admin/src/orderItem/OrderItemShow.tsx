@@ -15,6 +15,7 @@ export const OrderItemShow = (props: ShowProps): React.ReactElement => {
       <SimpleShowLayout>
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
+        <TextField label="Image" source="image" />
         <ReferenceField label="Order" source="order.id" reference="Order">
           <TextField source={ORDER_TITLE_FIELD} />
         </ReferenceField>

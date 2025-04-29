@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { BigIntFilter } from "../../util/BigIntFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
+import { JsonFilter } from "../../util/JsonFilter";
 import { OrderWhereUniqueInput } from "../../order/base/OrderWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
 import { FloatFilter } from "../../util/FloatFilter";
@@ -30,6 +31,17 @@ class OrderItemWhereInput {
     nullable: true,
   })
   id?: BigIntFilter;
+
+  @ApiProperty({
+    required: false,
+    type: JsonFilter,
+  })
+  @Type(() => JsonFilter)
+  @IsOptional()
+  @Field(() => JsonFilter, {
+    nullable: true,
+  })
+  image?: JsonFilter;
 
   @ApiProperty({
     required: false,

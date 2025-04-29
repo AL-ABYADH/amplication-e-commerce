@@ -172,6 +172,7 @@ export class OrderControllerBase {
       select: {
         createdAt: true,
         id: true,
+        image: true,
 
         order: {
           select: {

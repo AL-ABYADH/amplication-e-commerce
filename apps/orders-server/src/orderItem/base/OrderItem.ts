@@ -25,6 +25,9 @@ import {
 
 import { Type } from "class-transformer";
 import { GraphQLBigInt } from "../../util/GraphQLBigInt";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { JsonValue } from "type-fest";
 import { Order } from "../../order/base/Order";
 
 @ObjectType()
@@ -44,6 +47,13 @@ class OrderItem {
   @IsInt()
   @Field(() => GraphQLBigInt)
   id!: bigint;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsJSONValue()
+  @Field(() => GraphQLJSON)
+  image!: JsonValue;
 
   @ApiProperty({
     required: false,
